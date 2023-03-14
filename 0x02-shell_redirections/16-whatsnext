@@ -1,2 +1,2 @@
 #!/bin/bash
-grep -rA 3 /etc/passw
+grep -A 3 /etc/passwd
