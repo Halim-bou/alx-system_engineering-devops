@@ -1,2 +1,2 @@
 #!/bin/bash
-sed -n 'n;q'
+awk 'NR%2==0'
