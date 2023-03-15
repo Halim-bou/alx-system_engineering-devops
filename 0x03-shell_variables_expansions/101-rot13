@@ -1,2 +1,2 @@
 #!/bin/bash
-base64 -d | base64
+tr 'A-Za-z' 'N-ZA-Mn-za-m'
