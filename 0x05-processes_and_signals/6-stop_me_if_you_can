@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#bash script to kill a file from his PID using pkill
+"pkill" "-f" "4-stop_me_if_you_can"
