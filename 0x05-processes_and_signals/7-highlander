@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#bash script that displays string indefinitely
+#using sleep2 between each iteration
+#another string when receiving SIGTERM signal
+while true
+do
+	echo "To infinity and beyond"
+	sleep 2
+	trap 'echo "I am invicible!!!"' SIGTERM
+done
