@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#bash script that displays string to indefinitely
+while true
+do
+	echo "To infnity and beyond"
+	sleep2
+done
