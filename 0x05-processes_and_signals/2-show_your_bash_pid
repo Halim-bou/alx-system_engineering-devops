@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#display lines containing the bash
+# shellcheck disable=SC2009
+"ps" "-uax" | grep "bash"
