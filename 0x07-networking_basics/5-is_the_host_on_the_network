@@ -1,4 +1,4 @@
-#!/usr/bin/ env bash
+#!/usr/bin/env bash
 #Bash script that prints an IP passed as argument
 if [ "$#" -eq 0 ]
 then
