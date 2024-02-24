@@ -1,6 +1,6 @@
 # Create file using Puppet
 file {'/tmp/school':
-ensure   => 'file',
+ensure  => 'file',
 content => 'I love Puppet',
 owner   => www-data,
 group   => www-data,
