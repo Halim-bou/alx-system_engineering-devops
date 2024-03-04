@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# shell to configuer both web servers
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo sh -c 'echo "Hello World!"> /var/www/html/index.nginx-debian.html'
+sudo sed -i '28s|.*|	location /redirect_me{\n		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n	}|' /etc/nginx/sites-available/default
+sudo sh -c "echo \"Ceci n'est pas une page\"> /var/www/html/error_404.html"
+sudo sed -i '46i\ error_page 404 /error_404.html;' /etc/nginx/sites-available/default
+sudo sed -i '31s|.*|	add_header X-Served-By $HOSTNAME;|' /etc/nginx/sites-available/default
+sudo service nginx restart
