@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Create a script to install and configure HAProxy on lb-01 server
+# cofigure the nessesery conf
+sudo apt-get -y update
+apt-get -y install haproxy
+
+server_config=\
+"
+frontend  Halim_frontend
+        bind *:80
+        mode http
+        default_backend Halim_backend
+backend Halim_backend
+        balance roundrobin
+        server 381927-web-01 100.26.224.157:80 check
+        server 391927-web-02 34.204.81.16:80 check
+"
+echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
+
+sudo sh -c "echo "ENABLED=1" | sudo tee -a /etc/default/haproxy"
+
+sudo service haproxy restart
