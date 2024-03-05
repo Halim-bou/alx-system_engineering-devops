@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Script that symbo linkes the sites-enabled and sites-available folders
+ln -s /etc/nginx/sites-available /etc/nginx/sites-enabled
+sudo service nginx restart
