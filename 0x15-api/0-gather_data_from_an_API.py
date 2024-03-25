@@ -1,28 +1,34 @@
 #!/usr/bin/python3
-""" module doc """
+""" fetsh data from JSON API"""
 import requests
 import sys
 
 
 def main():
-    """ def com """
-    id = sys.argv[1]
+    """function that list of completed task using api json"""
+
+    if len(sys.argv) != 2:
+        return
+
     url = f'https://jsonplaceholder.typicode.com/'
-    users = f'users?id={id}'
-    todos = f'todos?userId={id}'
-    done = f'{todos}&completed=true'
-    notDone = f'{todos}&completed=false'
-    userData = requests.get(f'{url}{users}').json()
-    Name = userData[0].get("name")
-    todosData = requests.get(f'{url}{todos}').json()
-    todosDone = requests.get(f'{url}{done}').json()
-    doneN = len(todosDone)
-    totalN = len(todosData)
-    print(f'Employee {Name} is done with tasks({doneN}/{totalN}):')
+    args = sys.argv[1]
+    user = f'users?id={args}'
+    todoList = f'todos?userId={args}'
+    completed = f'{todoList}&completed=true'
+    userData = requests.get(f'{url}{user}').json()
+    name = userData[0].get("name")
+
+    if name is None:
+        return
+
+    todosData = requests.get(f'{url}{todoList}').json()
+    todosDone = requests.get(f'{url}{completed}').json()
+    lenDone = len(todosDone)
+    lenData = len(todosData)
+    print(f'Employee {name} is done with tasks({lenDone}/{lenData}):')
     for task in todosDone:
-        print("\t "+task.get("title"))
+        print(f'\t ' + task.get("title"))
 
 
 if __name__ == "__main__":
     main()
-
