@@ -15,12 +15,11 @@ if __name__ == "__main__":
         todoList = f'todos?userId={args}'
         userData = requests.get(f'{url}{user}').json()
         name = userData[0].get("name")
-        if name is not None:
-            todosData = requests.get('{}{}'.format(url, todoList)).json()
-            with open(f'{args}.csv', 'w', newline="") as csvf:
-                writer = csv.writer(csvf, delimiter=',', quotechar='"',
-                                    quoting=csv.QUOTE_ALL)
-                writer.writerows([args,
-                                  name,
-                                  task.get('completed'),
-                                  task.get('title')] for task in todosData)
+        todosData = requests.get('{}{}'.format(url, todoList)).json()
+        with open(f'{args}.csv', 'w', newline="") as csvf:
+            writer = csv.writer(csvf, delimiter=',', quotechar='"',
+                                quoting=csv.QUOTE_ALL)
+            writer.writerows([args,
+                                name,
+                                task.get('completed'),
+                                task.get('title')] for task in todosData)
