@@ -14,7 +14,7 @@ if __name__ == "__main__":
         userData = requests.get(f'{url}{user}').json()
         name = userData[0].get("username")
         todosData = requests.get('{}{}'.format(url, todoList)).json()
-        with open(f'{args}', 'w', newline="") as f:
+        with open(f'{args}.json', 'w', newline="") as f:
             dict_list = []
             for todo in todosData:
                 new_d = {}
