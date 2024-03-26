@@ -13,13 +13,18 @@ def main():
         args = sys.argv[1]
         user = f'users?id={args}'
         todoList = f'todos?userId={args}'
+        completed = f'{todoList}&completed=true'
         userData = requests.get(f'{url}{user}').json()
         name = userData[0].get("name")
         if name is not None:
             todosData = requests.get('{}{}'.format(url, todoList)).json()
+            todosDone = requests.get('{}{}'.format(url, completed)).json()
+            lenDone = len(todosDone)
+            lenData = len(todosData)
+
             with open(f'{args}.csv', 'w') as csvf:
                 for task in todosData:
-                    csv_data = f'"{args}","{name}",\
+                    csv_data = f'"{args}", "{name}",\
                         "{task.get("completed")}","{task.get("title")}"\n'
                     csvf.write(csv_data)
 
