@@ -12,7 +12,7 @@ if __name__ == "__main__":
         user = f'users?id={args}'
         todoList = f'todos?userId={args}'
         userData = requests.get(f'{url}{user}').json()
-        name = userData[0].get("name")
+        name = userData[0].get("username")
         todosData = requests.get('{}{}'.format(url, todoList)).json()
         with open(f'{args}.csv', 'w', newline="") as csvf:
             writer = csv.writer(csvf, delimiter=',', quotechar='"',
