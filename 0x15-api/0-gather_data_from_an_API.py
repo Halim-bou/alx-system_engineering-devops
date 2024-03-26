@@ -18,16 +18,15 @@ def main():
     userData = requests.get(f'{url}{user}').json()
     name = userData[0].get("name")
 
-    if name is None:
-        return
-
-    todosData = requests.get(f'{url}{todoList}').json()
-    todosDone = requests.get(f'{url}{completed}').json()
-    lenDone = len(todosDone)
-    lenData = len(todosData)
-    print(f'Employee {name} is done with tasks({lenDone}/{lenData}):')
-    for task in todosDone:
-        print(f'\t ' + task.get("title"))
+    if name is not None:
+        todosData = requests.get('{}{}'.format(url, todoList)).json()
+        todosDone = requests.get('{}{}'.format(url, completed)).json()
+        lenDone = len(todosDone)
+        lenData = len(todosData)
+        print('Employee {} is done with tasks({:d}/{:d}):'.format(
+            name, lenDone, lenData))
+        for task in todosDone:
+            print(f'\t ' + task.get("title"))
 
 
 if __name__ == "__main__":
