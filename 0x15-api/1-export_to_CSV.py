@@ -20,6 +20,6 @@ if __name__ == "__main__":
             writer = csv.writer(csvf, delimiter=',', quotechar='"',
                                 quoting=csv.QUOTE_ALL)
             writer.writerows([args,
-                                name,
-                                task.get('completed'),
-                                task.get('title')] for task in todosData)
+                              name,
+                              task.get('completed'),
+                              task.get('title')] for task in todosData)
