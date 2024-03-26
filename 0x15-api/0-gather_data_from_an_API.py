@@ -26,7 +26,7 @@ def main():
         print('Employee {} is done with tasks({:d}/{:d}):'.format(
             name, lenDone, lenData))
         for task in todosDone:
-            print(f'\t ' + task.get("title"))
+            print('\t {}'.format(task.get("title")))
 
 
 if __name__ == "__main__":
