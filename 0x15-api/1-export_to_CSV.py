@@ -5,11 +5,11 @@ import requests
 import sys
 
 
-def main():
+if __name__ == "__main__":
     """function that list of completed task using api json"""
 
+    url = f'https://jsonplaceholder.typicode.com/'
     if len(sys.argv) > 1:
-        url = f'https://jsonplaceholder.typicode.com/'
         args = sys.argv[1]
         user = f'users?id={args}'
         todoList = f'todos?userId={args}'
@@ -24,7 +24,3 @@ def main():
                                   name,
                                   task.get('completed'),
                                   task.get('title')] for task in todosData)
-
-
-if __name__ == "__main__":
-    main()
