@@ -3,26 +3,18 @@
 function that queries the Reddit API
 and returns the number of subscribers
 """
-from requests import get
+import requests
+
+
+headers = {"User-Agent": "MyCustomUserAgent/1.0"}
 
 
 def number_of_subscribers(subreddit):
-    """function that retrieve the subreddit fiven subscribers"""
-    headers = {'User-Agent': 'Custom User-Agent'}
-
-    url = f"https://www.reddit.com/r/{subreddit}/about.json"
-
-    try:
-        response = get(url, headers=headers, allow_redirects=False)
-
-        if response.status_code != 200 and response.status_code != 404:
-            return 0
-
+    """method doc"""
+    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    response = requests.get(url, allow_redirects=False, headers=headers)
+    if response.status_code == 200:
         data = response.json()
-
-        subscribers = data['data']['subscribers']
-
-        return subscribers
-
-    except Exception as e:
+        return data["data"]["subscribers"]
+    else:
         return 0
