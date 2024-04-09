@@ -8,7 +8,7 @@ from requests import get
 
 def number_of_subscribers(subreddit):
     """function that retrieve the subreddit fiven subscribers"""
-    headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'}
+    headers = {'User-Agent': 'Custom User-Agent'}
 
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
 
