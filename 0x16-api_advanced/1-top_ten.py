@@ -14,10 +14,9 @@ def top_ten(subreddit):
     """method to retrieve the post from given dubreddit"""
     url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
     response = requests.get(url=url, headers=headers, allow_redirects=False)
-    if response.status_code == 200:
-        if response.text:
-         data = response.json()
-         for post in data['data']['children']:
-             print(post['data']['title'])
+    if response.status_code == 200 and response.text:
+        data = response.json()
+        for post in data['data']['children']:
+            print(post['data']['title'])
     else:
         print('None')
