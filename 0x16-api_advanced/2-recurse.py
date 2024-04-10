@@ -1,4 +1,4 @@
-#!/usr/bi/python3
+#!/usr/bin/python3
 """
 ecursive function that queries the
 Reddit API and returns a list containing
