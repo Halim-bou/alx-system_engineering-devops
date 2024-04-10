@@ -7,7 +7,7 @@ Reddit API and prints the titles of the first
 import requests
 
 
-headers = {"User-Agent": "Custom User-Agent"}
+headers = {"User-Agent": "project_user_agent"}
 
 
 def top_ten(subreddit):

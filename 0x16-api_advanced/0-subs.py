@@ -6,7 +6,7 @@ and returns the number of subscribers
 import requests
 
 
-headers = {"User-Agent": "MyCustomUserAgent/1.0"}
+headers = {"User-Agent": "project_user_agent"}
 
 
 def number_of_subscribers(subreddit):
