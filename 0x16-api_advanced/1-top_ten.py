@@ -8,6 +8,8 @@ import requests
 
 
 headers = {"User-Agent": "my_user_agent"}
+
+
 def top_ten(subreddit):
     """method to retrieve the post from given dubreddit"""
     url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
