@@ -1,11 +1,10 @@
 #!/usr/bin/python3
+"""something to used with api"""
 import requests
 
 
 def count_words(subreddit, word_list, after="", counter=[]):
-    """
-    recursive function to rrtrives data
-    """
+    """recursive function to rrtrives data"""
 
     if after == "":
         counter = [0] * len(word_list)
