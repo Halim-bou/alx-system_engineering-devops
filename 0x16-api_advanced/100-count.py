@@ -1,6 +1,10 @@
+#!/usr/bin/python3
+import requests
+
+
 def count_words(subreddit, word_list, after="", counter=[]):
     """
-    This function did something i dontknow what
+    recursive function to rrtrives data
     """
 
     if after == "":
